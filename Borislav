@@ -1,0 +1,106 @@
+{
+  "company": {
+    "company_id": "UUID-12345",
+    "name": "Demo Consulting Ltd",
+    "sector": "services",
+    "subsector": "retail",
+    "company_size": {
+      "employees": 32,
+      "turnover_eur": 1200000
+    },
+    "contact_person": {
+      "name": "Ivan Petrov",
+      "role": "CEO",
+      "email": "ivan.petrov@example.com"
+    }
+  },
+
+  "assessment_session": {
+    "session_id": "SESSION-2025-01-001",
+    "date_created": "2025-01-25T12:40:00Z",
+    "created_by": "consultant_user_01",
+    "assessment_type": "initial", 
+    "status": "completed",
+    "version": "1.0"
+  },
+
+  "domains": [
+    {
+      "domain_id": "SALES",
+      "name": "Sales & Revenue Operations",
+      "weight": 0.30,
+      "indicators": [
+        {
+          "indicator_id": "SALES_PIPELINE_STRUCTURE",
+          "label": "Pipeline structure and forecasting",
+          "question_type": "likert_1_5",
+          "input_value": 3,
+          "weight": 0.25,
+          "score_raw": 3,
+          "score_weighted": 0.75,
+          "evidence": "CRM reports + interview with Head of Sales",
+          "recommendation_id": "REC_SALES_01"
+        }
+      ],
+      "domain_score": {
+        "score_raw": 3.1,
+        "score_weighted": 0.93,
+        "score_percent": 62
+      }
+    }
+  ],
+
+  "overall_score": {
+    "score_index": 0.68,
+    "score_percent": 68,
+    "maturity_level": "level_3_defined",
+    "maturity_scale_ref": "CMMI_5_LEVEL",
+    "confidence_level": 0.87
+  },
+
+  "scoring_model": {
+    "model_id": "DX_MSP_MODEL_V1",
+    "scale_type": "1_to_5",
+    "weights_strategy": "domain_weighted_average",
+    "scoring_formula": "Σ(indicator_score * indicator_weight) * domain_weight"
+  },
+
+  "baseline_reference": {
+    "is_baseline": true,
+    "baseline_id": "BASELINE_2025_Q1"
+  },
+
+  "history_tracking": [
+    {
+      "snapshot_id": "SNAPSHOT_2025_Q1",
+      "session_ref": "SESSION-2025-01-001",
+      "timestamp": "2025-01-25T12:40:00Z",
+      "type": "baseline",
+      "overall_score_percent": 68,
+      "domain_scores": {
+        "SALES": 62,
+        "OPERATIONS": 71,
+        "DIGITAL": 58
+      }
+    },
+    {
+      "snapshot_id": "SNAPSHOT_2025_Q2",
+      "session_ref": "SESSION-2025-04-15-002",
+      "timestamp": "2025-04-15T10:22:00Z",
+      "type": "progress",
+      "overall_score_percent": 74,
+      "progress_vs_baseline": 6,
+      "domain_scores": {
+        "SALES": 70,
+        "OPERATIONS": 74,
+        "DIGITAL": 65
+      }
+    }
+  ],
+
+  "metadata": {
+    "data_source": "consultancy_diagnostic_tool",
+    "import_format_version": "1.0",
+    "timezone": "Europe/Sofia"
+  }
+}
